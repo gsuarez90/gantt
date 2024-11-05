@@ -1,0 +1,68 @@
+<html>
+<head>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Material+Icons&display=block">
+  <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v20340109590ecca637cc225c95b56cbdeeca1e36cdadabf4502e87253db1ac7d/developers/css/app.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
+    }
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        ['Research', 'Problem Definition', null,
+         new Date(2024, 9, 25), new Date(2024, 10, 3), null,  100,  null],
+        ['Write', 'Ideation', 'write',
+         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, 'Research'],
+        ['Build', 'Modeling', 'build',
+         new Date(2024, 10, 11), new Date(2024, 10, 24), daysToMilliseconds(1), 0, 'Write'],
+        ['Complete', 'Final', 'final',
+         new Date(2024, 10, 25), new Date(2024, 11, 2), daysToMilliseconds(1), 0, 'Build']
+        /* ['Outline', 'Outline paper',
+         new Date(2024, 11, 3), new Date(2024, 11, 26), daysToMilliseconds(1), 100, 'Complete'] */
+      ]);
+
+      var options = {
+        height: 275,
+        /*backgroundColor: {fill: 'GREY'},*/
+        gantt: {
+          criticalPathEnabled: true,
+
+          innerGridHorizLine: {
+            stroke: 'GREY',
+            strokeWidth: 2
+          },
+          innerGridTrack: {fill: '#1d1d1d'},
+          innerGridDarkTrack: {fill: '#1d1d1d'},
+          
+          arrow: {color: 'green'},
+          
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="chart_div"></div>
+</body>
+</html>
