@@ -16,7 +16,7 @@
 
   .point-overlay
   {
-    position: relative;
+    position: absolute;
     top: 0px; /* Adjust as needed */
     left: 0px; /* Adjust as needed */
     max-width: 100%;
@@ -144,20 +144,28 @@
           } */
       };
 
+      
+      function resize() {
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
 
       chart.draw(data, options);
+      }
+      
+      window.onload = resize;
+      window.onresize = resize;
+
+
     }
   </script>
 </head>
 <body>
   <div class = "chart-container">
     <div id="chart_div"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:960px; margin-top: -910px;"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:1380px; margin-top: -700px;"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:1920px; margin-top: -450px;"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:2400px; margin-top: -320px;"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:2800px; margin-top: -120px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);left: 34%; top: 29.5%;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);left: 48%; top: 46%;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);left: 66.5%; top: 66%;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);left: 84%; top: 75%;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);left: 97%; top: 91%;"></div>
   </div>
   
   
