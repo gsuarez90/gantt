@@ -1,12 +1,32 @@
 <html>
 <head>
+  <!-- <meta charset = "utf-8" name="viewport" content="width=device-width, initial-scale=1.0"> shrink-to-fit=no">  -->
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Material+Icons&display=block">
+  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Material+Icons&display=block"> -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v20340109590ecca637cc225c95b56cbdeeca1e36cdadabf4502e87253db1ac7d/developers/css/app.css">
+  
+  <style>
+  .chart-container
+  {
+    position: relative;
+  }
+
+  .point-overlay
+  {
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    left: 300px; /* Adjust as needed */
+  }
+
+  </style>
+  
+  
+  
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
   
-    google.charts.load('current', {'packages':['gantt']});
+    google.charts.load('current', {'packages':['corechart','gantt']});
     google.charts.setOnLoadCallback(drawChart);
 
     function daysToMilliseconds(days) {
@@ -31,23 +51,37 @@
         ['Write', 'Ideation', 'Sketch and Describe',
          new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, 'Research'],
         ['Sketch', 'Draw Sketches', 'Sketch and Describe',
-         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
+         new Date(2024, 10, 4), new Date(2024, 10, 6), daysToMilliseconds(1), 10, null],
         ['Distinguish', 'Distinguish Designs', 'Sketch and Describe',
-         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
+         new Date(2024, 10, 7), new Date(2024, 10, 8), daysToMilliseconds(1), 10, null],
         ['Table', 'AHP Table', 'Sketch and Describe',
-         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
+         new Date(2024, 10, 8), new Date(2024, 10, 9), daysToMilliseconds(1), 10, null],
         ['Matrix', 'Decision Matrix', 'Sketch and Describe',
-         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
+         new Date(2024, 10, 9), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
         ['Build', 'Modeling', 'Build and Test',
-         new Date(2024, 10, 11), new Date(2024, 10, 24), daysToMilliseconds(1), 0, 'Matrix'],
+         new Date(2024, 10, 11), new Date(2024, 10, 25), daysToMilliseconds(1), 0, 'Matrix'],
+        ['Build2', 'Designate Robots', 'Build and Test',
+         new Date(2024, 10, 11), new Date(2024, 10, 12), daysToMilliseconds(1), 0, null],
+        ['Build3', 'Designate Final Design', 'Build and Test',
+         new Date(2024, 10, 11), new Date(2024, 10, 12), daysToMilliseconds(1), 0, null],
+        ['Build4', 'Define Parts Needed', 'Build and Test',
+         new Date(2024, 10, 12), new Date(2024, 10, 13), daysToMilliseconds(1), 0, null],
+        ['Build5', 'CAD Models', 'Build and Test',
+         new Date(2024, 10, 13), new Date(2024, 10, 15), daysToMilliseconds(1), 0, null],
+        ['Build6', 'Flowcharts for Algorithms', 'Build and Test',
+         new Date(2024, 10, 15), new Date(2024, 10, 18), daysToMilliseconds(1), 0, null],
+        ['Build7', 'TinkerCAD Sims', 'Build and Test',
+         new Date(2024, 10, 18), new Date(2024, 10, 22), daysToMilliseconds(1), 0, null],
+        ['Build8', 'Video Demos', 'Build and Test',
+         new Date(2024, 10, 23), new Date(2024, 10, 25), daysToMilliseconds(1), 0, null],
         ['Complete', 'Final', 'Present',
-         new Date(2024, 10, 25), new Date(2024, 11, 2), daysToMilliseconds(1), 0, 'Build']
+         new Date(2024, 10, 25), new Date(2024, 11, 2), daysToMilliseconds(1), 0, 'Build8']
         /* ['Outline', 'Outline paper',
          new Date(2024, 11, 3), new Date(2024, 11, 26), daysToMilliseconds(1), 100, 'Complete'] */
       ]);
 
       var options = {
-        height: 500,
+        height: 800,
         /*backgroundColor: {fill: 'GREY'},*/
         gantt: {
           criticalPathEnabled: true,
@@ -59,9 +93,24 @@
           innerGridTrack: {fill: '#1d1d1d'},
           innerGridDarkTrack: {fill: '#1d1d1d'},
           
-          arrow: {color: 'green'},
+          arrow: {color: 'green'}
+          
           
         }
+        /* annotations: {
+          // Define a shape annotation
+          boxes: [{
+          // Shape properties
+          style: 'point', // Use 'point' for a shape
+          shape: 'triangle', // Specify the shape (e.g., triangle)
+          pointsVisible: true, // Make the shape visible
+          pointSize : 30,
+          color: 'grey',
+          // Positioning
+          x: new Date(2024, 11, 2), // Example date, adjust as needed
+          y: 7 // Example row index (0 for the first task), adjust as needed
+          }]
+          } */
       };
 
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
@@ -71,6 +120,12 @@
   </script>
 </head>
 <body>
-  <div id="chart_div"></div>
+  <div class = "chart-container">
+    <div id="chart_div"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:615px; margin-top: -750px;"></div>
+  </div>
+  
+  
+
 </body>
 </html>
