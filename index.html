@@ -48,13 +48,31 @@
       data.addRows([
         ['Research', 'Problem Definition', null,
          new Date(2024, 9, 25), new Date(2024, 10, 3), null,  100,  null],
+        ['Prob1', 'Identify a Problem', null,
+         new Date(2024, 9, 25), new Date(2024, 9, 26), daysToMilliseconds(1), 100, null],
+        ['Prob2', 'Write POV', null,
+         new Date(2024, 9, 26), new Date(2024, 9, 27), daysToMilliseconds(1), 100, null],
+        ['Prob3', 'Research', null,
+         new Date(2024, 9, 27), new Date(2024, 9, 28), daysToMilliseconds(1), 100, null],
+        ['Prob4', 'Brainstorm', null,
+         new Date(2024, 9, 27), new Date(2024, 9, 28), daysToMilliseconds(1), 100, null],
+        ['Prob5', 'Write Formal Problem Statement', null,
+         new Date(2024, 9, 27), new Date(2024, 9, 28), daysToMilliseconds(1), 100, null],
+        ['Prob6', 'Determing Robot Types', null,
+         new Date(2024, 9, 28), new Date(2024, 9, 30), daysToMilliseconds(1), 100, null],
+        ['Prob7', 'List Design Requirements', null,
+         new Date(2024, 9, 30), new Date(2024, 10, 2), daysToMilliseconds(1), 100, null],
+        ['Prob8', 'List Design Requirements', null,
+         new Date(2024, 10, 2), new Date(2024, 10, 4), daysToMilliseconds(1), 100, null],   
         ['Write', 'Ideation', 'Sketch and Describe',
-         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, 'Research'],
+         new Date(2024, 10, 4), new Date(2024, 10, 10), daysToMilliseconds(1), 10, 'Prob8'],
         ['Sketch', 'Draw Sketches', 'Sketch and Describe',
          new Date(2024, 10, 4), new Date(2024, 10, 6), daysToMilliseconds(1), 10, null],
         ['Distinguish', 'Distinguish Designs', 'Sketch and Describe',
-         new Date(2024, 10, 7), new Date(2024, 10, 8), daysToMilliseconds(1), 10, null],
+         new Date(2024, 10, 6), new Date(2024, 10, 8), daysToMilliseconds(1), 10, null],
         ['Table', 'AHP Table', 'Sketch and Describe',
+         new Date(2024, 10, 8), new Date(2024, 10, 9), daysToMilliseconds(1), 10, null],
+        ['Grade', 'Standardized Rating To Grade Designs', 'Sketch and Describe',
          new Date(2024, 10, 8), new Date(2024, 10, 9), daysToMilliseconds(1), 10, null],
         ['Matrix', 'Decision Matrix', 'Sketch and Describe',
          new Date(2024, 10, 9), new Date(2024, 10, 10), daysToMilliseconds(1), 10, null],
@@ -67,21 +85,31 @@
         ['Build4', 'Define Parts Needed', 'Build and Test',
          new Date(2024, 10, 12), new Date(2024, 10, 13), daysToMilliseconds(1), 0, null],
         ['Build5', 'CAD Models', 'Build and Test',
-         new Date(2024, 10, 13), new Date(2024, 10, 15), daysToMilliseconds(1), 0, null],
+         new Date(2024, 10, 13), new Date(2024, 10, 15), daysToMilliseconds(1), 0, 'Build4'],
         ['Build6', 'Flowcharts for Algorithms', 'Build and Test',
          new Date(2024, 10, 15), new Date(2024, 10, 18), daysToMilliseconds(1), 0, null],
         ['Build7', 'TinkerCAD Sims', 'Build and Test',
          new Date(2024, 10, 18), new Date(2024, 10, 22), daysToMilliseconds(1), 0, null],
         ['Build8', 'Video Demos', 'Build and Test',
-         new Date(2024, 10, 23), new Date(2024, 10, 25), daysToMilliseconds(1), 0, null],
+         new Date(2024, 10, 22), new Date(2024, 10, 25), daysToMilliseconds(1), 0, 'Build7'],
         ['Complete', 'Final', 'Present',
-         new Date(2024, 10, 25), new Date(2024, 11, 2), daysToMilliseconds(1), 0, 'Build8']
+         new Date(2024, 10, 25), new Date(2024, 11, 2), daysToMilliseconds(1), 0, 'Build8'],
+        ['Comp1', 'Explain the Algorithm and Overall Sequence', 'Present',
+         new Date(2024, 10, 25), new Date(2024, 10, 26), daysToMilliseconds(1), 0, null],
+        ['Comp2', 'CAD/2D Top View Drawings', 'Present',
+         new Date(2024, 10, 26), new Date(2024, 10, 27), daysToMilliseconds(1), 0, null],
+        ['Comp3', 'Address if Robots Satisfy Reqs', 'Present',
+         new Date(2024, 10, 27), new Date(2024, 10, 28), daysToMilliseconds(1), 0, null],
+        ['Comp4', 'Compare System to Current Market', 'Present',
+         new Date(2024, 10, 28), new Date(2024, 10, 29), daysToMilliseconds(1), 0, null],
+        ['Comp5', 'Summarize Report', 'Present',
+         new Date(2024, 10, 29), new Date(2024, 11, 1), daysToMilliseconds(1), 0, null]
         /* ['Outline', 'Outline paper',
          new Date(2024, 11, 3), new Date(2024, 11, 26), daysToMilliseconds(1), 100, 'Complete'] */
       ]);
 
       var options = {
-        height: 800,
+        height: 1300,
         /*backgroundColor: {fill: 'GREY'},*/
         gantt: {
           criticalPathEnabled: true,
@@ -122,7 +150,11 @@
 <body>
   <div class = "chart-container">
     <div id="chart_div"></div>
-    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:615px; margin-top: -750px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:860px; margin-top: -910px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:1240px; margin-top: -700px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:1720px; margin-top: -450px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:2100px; margin-top: -320px;"></div>
+    <div id="point-overlay" style="position: absolute; width: 20px; height: 20px; background-color: rgb(255, 0, 140); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);margin-left:2500px; margin-top: -120px;"></div>
   </div>
   
   
