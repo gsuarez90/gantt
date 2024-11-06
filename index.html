@@ -145,6 +145,8 @@
           } */
       };
 
+      window.onload = resize;
+      window.onresize = resize;
       
       function resize() {
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
@@ -152,8 +154,8 @@
       chart.draw(data, options);
       }
       
-      window.onload = resize;
-      window.onresize = resize;
+      /* window.onload = resize;
+      window.onresize = resize; */
 
 
     }
